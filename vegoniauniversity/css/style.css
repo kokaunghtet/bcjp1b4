@@ -1,0 +1,782 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300&display=swap');
+
+:root {
+  --primary-color: darkviolet;
+  --secondary-color: darkblue;
+  --primary-grad-color: linear-gradient(darkviolet, darkblue);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* start header section */
+header {
+  height: 80vh;
+
+  background: var(--primary-grad-color);
+
+  position: relative;
+}
+
+/* start header intro */
+.headerintros {
+  background-color: var(--primary-color);
+  color: #fff;
+
+  padding: 15px 0;
+}
+
+.infos {
+  font-size: 14px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* end header intro */
+
+/* start navbar */
+.navbarbuttons {
+  border: none;
+}
+
+.navbarbuttons:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.lines1,
+.lines2,
+.lines3 {
+  width: 17px;
+  height: 1px;
+  margin: 3px;
+}
+
+.crossxs .lines1 {
+  transform: rotate(-45deg) translate(-3px, 3px);
+}
+
+.crossxs .lines2 {
+  opacity: 0;
+}
+
+.crossxs .lines3 {
+  transform: rotate(45deg) translate(-3px, -3px);
+}
+
+.menustyles li a {
+  color: #000;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.menustyles li a:hover {
+  color: var(--primary-color);
+}
+
+/* end navbar */
+
+/* start banner */
+.banners {
+  width: 90%;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+.bannerheaders {
+  font-weight: bold;
+  letter-spacing: 3px;
+
+  animation: banneranis;
+  animation-duration: 2s;
+}
+
+.bannerparagraphs,
+.banner-btns {
+  animation: banneranis;
+  animation-duration: 2s;
+  animation-delay: .5s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes banneranis {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.studentgroups {
+  width: 45%;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.waves {
+  width: 100%;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+/* end banner */
+
+/* end header section */
+
+/* start counter section */
+.counters {
+  width: 100%;
+  height: 20vh;
+
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.counteritems {
+  width: 20%;
+
+  text-align: center;
+  /* can use display:flex in .container instead of float */
+  float: left;
+
+  border-right: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.counteritems:last-child {
+  border-right: none;
+}
+
+.counteritems .fas {
+  background: var(--primary-grad-color);
+  color: transparent;
+
+  -webkit-background-clip: text;
+}
+
+.counteritems h5 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* end counter section */
+
+/* start about us section */
+.aboutuss {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(./../assets/img/banner/banner4.jpg);
+
+  background-repeat: no-repeat;
+}
+
+.aboutuss ul {
+  margin: 0;
+  padding: 0;
+}
+
+.aboutuss ul li {
+  list-style-type: none;
+
+  margin: 20px 0;
+  padding: 5px 0;
+
+  background-color: var(--secondary-color);
+}
+
+/* end about us section */
+
+/* start teachers section */
+.faculties {
+  background-color: var(--secondary-color);
+}
+
+.flip-cards {
+  width: 300px;
+  height: 300px;
+}
+
+/*This is not necessary and Sir Tin didn't write this, add by myself */
+.flip-card-fronts img {
+  width: 100%;
+}
+
+.flip-card-inners {
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+
+  box-shadow: 10px 0 10px rgba(0, 0, 0, .5);
+
+  transform: rotateY(-45deg) scale(0.7);
+
+  /* without this, we will not get 3d flip effect */
+  transform-style: preserve-3d;
+
+  transition: all .5s;
+}
+
+.flip-card-fronts,
+.flip-card-backs {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-backs {
+  background-color: steelblue;
+  transform: rotateY(180deg);
+
+  /* add by myself */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flip-cards:hover .flip-card-inners {
+  transform: rotateY(180deg);
+}
+
+.socialicons a {
+  margin: 5px;
+  padding: 5px;
+
+  color: #fff;
+
+  border: 1px solid #f4f4f4;
+}
+
+.socialicons a:hover {
+  background-color: blue;
+}
+
+/* end teachers section */
+
+/* start pricing section */
+.pricingboxes {
+  background-color: #eee;
+
+  text-align: center;
+
+  transition: all .5s ease;
+}
+
+.pricingboxes:hover {
+  transform: translateY(-20px);
+}
+
+.price-headers {
+  padding: 10px 0;
+
+  background-color: darkblue;
+  color: #fff;
+}
+
+.prices {
+  color: #777;
+
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 170px;
+
+  /*
+  background-image: url(./../assets/img/icon/pricebg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  */
+
+  /* shorthand of above code */
+  background: url(./../assets/img/icon/pricebg.png) center center no-repeat;
+}
+
+.price-items li {
+  margin: 10px 0;
+}
+
+/* end pricing section */
+
+/* start location section */
+.locationcards {
+  position: relative;
+  perspective: 1200px;
+
+  /* overflow: hidden; */
+}
+
+.locationcontents {
+  /* width: 70%; */
+  width: 0;
+  height: 100%;
+
+  background-color: #444;
+  color: #fff;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  transform: rotateY(-90deg);
+  transform-origin: left;
+
+  transition: all .2s;
+}
+
+.locationcards:hover .locationcontents {
+  width: 70%;
+  transform: rotateY(0deg);
+}
+
+.btn-infos {
+  width: 50%;
+
+  background-color: steelblue;
+  color: #fff;
+
+  text-align: center;
+  text-decoration: none;
+
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+.btn-infos:hover {
+  background-color: royalblue;
+  color: #fff;
+}
+
+/* end location section */
+
+/* start features section */
+.features {
+  background-color: var(--secondary-color);
+  color: #f0f0f0;
+}
+
+.feas img {
+  transform: rotateY(0) scale(0.5);
+
+  transition: all .5s;
+}
+
+.feas img:hover {
+  transform: rotateY(1turn) scale(1);
+}
+
+
+.feas p {
+  font-size: 12px;
+}
+
+/* end features section */
+
+/* start graduate section */
+.headings {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa.fa-star {
+  font-size: 25px;
+}
+
+.fills {
+  color: orange;
+}
+
+.rows {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.lefts {
+  width: 20%;
+}
+
+.middles {
+  width: 60%;
+}
+
+.bars-container {
+  width: 100%;
+  background-color: #f1f1f1;
+
+}
+
+.rights {
+  width: 20%;
+}
+
+.bars-1 {
+  width: 60%;
+  height: 18px;
+  background-color: green;
+}
+
+.bars-2 {
+  width: 30%;
+  height: 18px;
+  background-color: steelblue;
+}
+
+.bars-3 {
+  width: 10%;
+  height: 18px;
+  background-color: skyblue;
+}
+
+.bars-4 {
+  width: 4%;
+  height: 18px;
+  background-color: orange;
+}
+
+.bars-5 {
+  width: 15%;
+  height: 18px;
+  background-color: red;
+}
+
+/* end graduate section */
+
+/* start subscribe section */
+.subscirbes {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(./../assets/img/etc/student1.png);
+  background-repeat: no-repeat;
+  background-position: 80%;
+
+  padding: 10px 20px;
+
+  overflow: hidden;
+}
+
+.input-group-text {
+  background-color: royalblue;
+  color: #fff;
+}
+
+.squareareas {
+  position: relative;
+}
+
+.squareboxes {
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.squares {
+  background-color: #f2f2f2;
+
+  position: absolute;
+  bottom: -100px;
+
+  animation: sqani 3s infinite ease-in-out;
+}
+
+.squares:nth-child(1) {
+  width: 70px;
+  height: 70px;
+  left: 7%;
+}
+
+.squares:nth-child(2) {
+  width: 65px;
+  height: 65px;
+  left: 15%;
+
+  animation-delay: 8s;
+
+}
+
+.squares:nth-child(3) {
+  width: 82px;
+  height: 82px;
+  left: 45%;
+
+  animation-delay: 4s;
+}
+
+.squares:nth-child(4) {
+  width: 70px;
+  height: 70px;
+  left: 55%;
+
+  animation-delay: 2s;
+}
+
+.squares:nth-child(5) {
+  width: 60px;
+  height: 60px;
+  left: 27%;
+
+  animation-delay: 6s;
+}
+
+.squares:nth-child(6) {
+  width: 70px;
+  height: 70px;
+  left: 85%;
+
+  animation-delay: 4s;
+}
+
+.squares:nth-child(7) {
+  width: 90px;
+  height: 90px;
+  left: 75%;
+
+  animation-delay: 9s;
+}
+
+.squares:nth-child(8) {
+  width: 55px;
+  height: 55px;
+  left: 67%;
+
+  animation-delay: 4s;
+}
+
+.squares:nth-child(9) {
+  width: 45px;
+  height: 45px;
+  left: 10%;
+
+  animation-delay: 7s;
+}
+
+.squares:nth-child(10) {
+  width: 55px;
+  height: 55px;
+  left: 60%;
+}
+
+
+@keyframes sqani {
+  from {
+    bottom: -100px;
+  }
+
+  to {
+    bottom: 100%;
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* end subscribe section */
+
+/* start footer section  */
+.footerlinks {
+  color: #eee;
+
+  font-size: 13px;
+  text-decoration: none;
+
+  transition: all .3s;
+}
+
+.footerlinks:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+
+  letter-spacing: 1px;
+}
+
+.footersocialicons a {
+  display: inline-block;
+
+  width: 30px;
+  height: 30px;
+
+  margin: 0 2px;
+
+  color: #fff;
+
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+
+  text-align: center;
+  line-height: 30px;
+
+  transition: all .3s;
+}
+
+.footersocialicons a:hover {
+  color: blue;
+}
+
+.instagrams ul li a {
+  opacity: 0.9;
+  transform: scale(0.9);
+}
+
+.instagrams ul li a:hover {
+  opacity: 0.5;
+  transform: scale(1);
+}
+
+.backtotop-btns {
+  background-color: #303030;
+
+  padding: 10px;
+}
+
+.backtotop-btns:hover {
+  background-color: #404040;
+}
+
+/* end footer section */
+
+/* start login & sticknote */
+
+/* start login */
+.opens-button {
+  width: 30px;
+  height: 30px;
+
+  background-color: #555;
+  color: #fff;
+
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 10;
+
+  opacity: 0.8;
+}
+
+.opens-button:hover {
+  opacity: 1;
+}
+
+.form-containers {
+  max-width: 300px;
+
+  padding: 10px;
+
+  background-color: #fff;
+}
+
+.form-containers input[type=email],
+.form-containers input[type=password] {
+  width: 100%;
+
+  margin: 5px 0 22px 0;
+  padding: 15px;
+
+  background-color: #f1f1f1;
+
+  border: none;
+}
+
+.form-containers input[type=email]:focus,
+.form-containers input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-popup {
+  display: none;
+
+  position: fixed;
+  right: 15px;
+  bottom: 50px;
+  z-index: 100;
+
+  border: 3px solid #f1f1f1;
+}
+
+/* end login */
+
+/* start sticknote */
+#mysidenav a {
+  width: 100px;
+
+  padding: 15px;
+
+  color: #fff;
+
+  border-radius: 0 5px 5px 0;
+
+  font-size: 20px;
+  text-decoration: none;
+
+  position: absolute;
+  left: -80px;
+  z-index: 100;
+
+  transition: all .3s;
+}
+
+#about {
+  background-color: green;
+  top: 200px;
+}
+
+#pages {
+  background-color: skyblue;
+  top: 260px;
+}
+
+#news {
+  background-color: tomato;
+  top: 320px;
+}
+
+#contact {
+  background-color: gray;
+  top: 380px;
+}
+
+#mysidenav a:hover {
+  left: 0;
+}
+
+/* end sticknote */
+
+/* end login & sticknote */
