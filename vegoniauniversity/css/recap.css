@@ -20,37 +20,37 @@ body {
 /* start header section */
 header {
   height: 80vh;
-
   background: var(--primary-grad-color);
-
   position: relative;
+
+  user-select: none;
 }
 
 /* start header intro */
 .headerintros {
-  background-color: var(--primary-color);
-  color: #fff;
-
   padding: 15px 0;
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .infos {
-  font-size: 14px;
-  font-weight: bold;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* end header intro */
 
 /* start navbar */
-.navbutotns {
+.navbuttons {
   border: none;
 }
 
-.navbutotns:focus {
+.navbuttons:focus {
+  border: none;
   outline: none;
   box-shadow: none;
 }
@@ -59,12 +59,14 @@ header {
 .lines2,
 .lines3 {
   width: 17px;
-  height: 1px;
+  height: 2px;
   margin: 3px;
+
+  transition: all .3s;
 }
 
 .crossxs .lines1 {
-  transform: rotate(-45deg) translate(-3px, 4px);
+  transform: rotate(45deg) translate(3px, 4px);
 }
 
 .crossxs .lines2 {
@@ -72,17 +74,19 @@ header {
 }
 
 .crossxs .lines3 {
-  transform: rotate(45deg) translate(-3px, -4px);
+  transform: rotate(-45deg) translate(3px, -4px);
 }
 
 .menustyles li a {
-  color: #000;
   font-size: 13px;
   letter-spacing: 1.5px;
+
+  transition: all .3s;
 }
 
 .menustyles li a:hover {
   color: var(--primary-color);
+  font-weight: bolder;
 }
 
 /* end navbar */
@@ -102,15 +106,15 @@ header {
   font-weight: bold;
   letter-spacing: 3px;
 
-  animation: banneranis;
+  animation-name: banneranis;
   animation-duration: 2s;
 }
 
 .bannerparagraphs,
-.banner-btns {
-  animation: banneranis;
+.bannerbtns {
+  animation-name: banneranis;
   animation-duration: 2s;
-  animation-delay: .5s;
+  animation-delay: 0.5s;
   animation-fill-mode: backwards;
 }
 
@@ -126,11 +130,11 @@ header {
   }
 }
 
-.studentgroups {
+.studentgroup {
   width: 45%;
 
   position: absolute;
-  left: 0;
+  left: 50px;
   bottom: 0;
   z-index: 1;
 }
@@ -148,7 +152,7 @@ header {
 
 /* end header section */
 
-/* start counter section */
+/* start students counter section */
 .counters {
   width: 100%;
   height: 20vh;
@@ -161,65 +165,57 @@ header {
   align-items: center;
 }
 
-/* .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .counteritems {
-  width: 20%;
-
+  width: 25%;
+  margin-top: 20px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
   text-align: center;
-  /* can use display:flex in .container instead of float */
   float: left;
 
-  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
 }
 
-.counteritems:last-child {
+.counteritems:last-of-type {
   border-right: none;
 }
 
 .counteritems .fas {
   background: var(--primary-grad-color);
   color: transparent;
-
-  -webkit-background-clip: text;
   background-clip: text;
 }
 
+.countervalues {
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
 .counteritems h5 {
-  font-size: 15px;
   font-weight: bold;
 }
 
-/* end counter section */
+/* end students counter section */
 
-/* start about us section */
+/* start aboutus section */
 .aboutuss {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(./../assets/img/banner/banner4.jpg);
-
-  background-repeat: no-repeat;
 }
 
 .aboutuss ul {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 .aboutuss ul li {
-  list-style-type: none;
-
   margin: 20px 0;
-  padding: 5px 0;
-
+  padding: 10px 0;
   background-color: var(--secondary-color);
 }
 
-/* end about us section */
+/* end aboutus section */
 
-/* start teachers section */
+/* start teacher section */
 .faculties {
   background-color: var(--secondary-color);
 }
@@ -227,11 +223,6 @@ header {
 .flip-cards {
   width: 300px;
   height: 300px;
-}
-
-/*This is not necessary and Sir Tin didn't write this, add by myself */
-.flip-card-fronts img {
-  width: 100%;
 }
 
 .flip-card-inners {
@@ -242,9 +233,7 @@ header {
 
   box-shadow: 10px 0 10px rgba(0, 0, 0, .5);
 
-  transform: rotateY(-45deg) scale(0.7);
-
-  /* without this, we will not get 3d flip effect */
+  transform: scale(0.9);
   transform-style: preserve-3d;
 
   transition: all .5s;
@@ -254,19 +243,23 @@ header {
 .flip-card-backs {
   width: 100%;
   height: 100%;
-
   position: absolute;
+
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.flip-card-fronts img {
+  width: 100%;
 }
 
 .flip-card-backs {
   background-color: steelblue;
   transform: rotateY(180deg);
 
-  /* add by myself */
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -274,60 +267,62 @@ header {
   transform: rotateY(180deg);
 }
 
-.socialicons a {
+.social-icons a {
   margin: 5px;
   padding: 5px;
 
+  background-color: transparent;
   color: #fff;
 
-  border: 1px solid #f4f4f4;
+  border: 1px solid #999;
+
+  transition: all .5s;
 }
 
-.socialicons a:hover {
-  background-color: blue;
+.social-icons a:hover {
+  background-color: var(--secondary-color);
 }
 
-/* end teachers section */
+
+/* end teacher section */
 
 /* start pricing section */
 .pricingboxes {
-  background-color: #eee;
+  background: #eee;
 
   text-align: center;
 
-  transition: all .5s ease;
+  transition: all .5s;
 }
 
 .pricingboxes:hover {
-  transform: translateY(-20px);
+  transform: translateY(-10px);
 }
 
-.price-headers {
+.pricingheaders {
   padding: 10px 0;
 
-  background-color: darkblue;
+  background-color: var(--secondary-color);
   color: #fff;
 }
 
 .prices {
-  color: #777;
-
   font-size: 3rem;
   font-weight: bold;
   line-height: 170px;
 
-  /*
-  background-image: url(./../assets/img/icon/pricebg.png);
-  background-repeat: no-repeat;
+  background: url(./../assets/img/icon/pricebg.png);
   background-position: center;
-  */
-
-  /* shorthand of above code */
-  background: url(./../assets/img/icon/pricebg.png) center center no-repeat;
+  background-repeat: no-repeat;
 }
 
-.price-items li {
+.pricingitems li {
   margin: 10px 0;
+}
+
+.pricingboxes .btn {
+  background-color: var(--secondary-color);
+  color: #fff;
 }
 
 /* end pricing section */
@@ -335,27 +330,24 @@ header {
 /* start location section */
 .locationcards {
   position: relative;
-  perspective: 1200px;
 
-  /* overflow: hidden; */
+  perspective: 1200px;
 }
 
 .locationcontents {
-  /* width: 70%; */
-  width: 0;
+  width: 0%;
   height: 100%;
 
   background-color: #444;
   color: #fff;
 
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
 
   transform: rotateY(-90deg);
   transform-origin: left;
-
-  transition: all .2s;
+  transition: all .3s;
 }
 
 .locationcards:hover .locationcontents {
@@ -363,23 +355,22 @@ header {
   transform: rotateY(0deg);
 }
 
-.btn-infos {
+.info-btns {
   width: 50%;
-
+  padding: 5px 0;
   background-color: steelblue;
   color: #fff;
 
-  text-align: center;
   text-decoration: none;
+  text-align: center;
 
   position: absolute;
   left: 10px;
   bottom: 10px;
 }
 
-.btn-infos:hover {
+.info-btns:hover {
   background-color: royalblue;
-  color: #fff;
 }
 
 /* end location section */
@@ -387,19 +378,17 @@ header {
 /* start features section */
 .features {
   background-color: var(--secondary-color);
-  color: #f0f0f0;
+  color: #fff;
 }
 
 .feas img {
   transform: rotateY(0) scale(0.5);
-
-  transition: all .5s;
+  transition: all .3s;
 }
 
 .feas:hover img {
   transform: rotateY(1turn) scale(1);
 }
-
 
 .feas p {
   font-size: 12px;
@@ -410,10 +399,10 @@ header {
 /* start graduate section */
 .headings {
   font-size: 25px;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
-.fa.fa-star {
+.fas.fa-star {
   font-size: 25px;
 }
 
@@ -434,66 +423,62 @@ header {
   width: 60%;
 }
 
-.bars-container {
+.bar-containers {
   width: 100%;
+  height: 18px;
   background-color: #f1f1f1;
+}
+
+.bars-1 {
+  width: 60%;
+  height: inherit;
+  background-color: green;
+}
+
+.bars-2 {
+  width: 30%;
+  height: inherit;
+  background-color: steelblue;
+}
+
+.bars-3 {
+  width: 10%;
+  height: inherit;
+  background-color: skyblue;
+}
+
+.bars-4 {
+  width: 4%;
+  height: inherit;
+  background-color: orange;
+}
+
+.bars-5 {
+  width: 15%;
+  height: inherit;
+  background-color: red;
 }
 
 .rights {
   width: 20%;
 }
 
-.bars-1 {
-  width: 60%;
-  height: 18px;
-  background-color: green;
-}
-
-.bars-2 {
-  width: 30%;
-  height: 18px;
-  background-color: steelblue;
-}
-
-.bars-3 {
-  width: 10%;
-  height: 18px;
-  background-color: skyblue;
-}
-
-.bars-4 {
-  width: 4%;
-  height: 18px;
-  background-color: orange;
-}
-
-.bars-5 {
-  width: 15%;
-  height: 18px;
-  background-color: red;
-}
-
 /* end graduate section */
 
 /* start subscribe section */
-.subscirbes {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(./../assets/img/etc/student1.png);
+.subscribes {
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url(./../assets/img/etc/student1.png);
   background-repeat: no-repeat;
   background-position: 80%;
-
-  padding: 10px 20px;
-
-  overflow: hidden;
 }
 
 .input-group-text {
-  background-color: royalblue;
+  background-color: steelblue;
   color: #fff;
 }
 
 .squareareas {
   position: relative;
-
   overflow: hidden;
 }
 
@@ -512,103 +497,113 @@ header {
   position: absolute;
   bottom: -100px;
 
-  animation: sqani 3s infinite ease-in-out;
+  animation: squareani 3s infinite ease-in-out;
 }
 
-.squares:nth-child(1) {
+.squares:nth-of-type(1) {
   width: 70px;
   height: 70px;
-  left: 7%;
+
+  left: 10%;
 }
 
-.squares:nth-child(2) {
-  width: 65px;
-  height: 65px;
-  left: 15%;
-
-  animation-delay: 8s;
-
-}
-
-.squares:nth-child(3) {
-  width: 82px;
-  height: 82px;
-  left: 45%;
-
-  animation-delay: 4s;
-}
-
-.squares:nth-child(4) {
-  width: 70px;
-  height: 70px;
-  left: 55%;
-
-  animation-delay: 2s;
-}
-
-.squares:nth-child(5) {
+.squares:nth-of-type(2) {
   width: 60px;
   height: 60px;
-  left: 27%;
+
+  left: 15%;
+
+  animation-delay: 3s;
+}
+
+.squares:nth-of-type(3) {
+  width: 16px;
+  height: 16px;
+
+  left: 50%;
 
   animation-delay: 6s;
 }
 
-.squares:nth-child(6) {
-  width: 70px;
-  height: 70px;
-  left: 85%;
+.squares:nth-of-type(4) {
+  width: 50px;
+  height: 50px;
 
-  animation-delay: 4s;
+  left: 80%;
+
+  animation-delay: 2s;
 }
 
-.squares:nth-child(7) {
-  width: 90px;
-  height: 90px;
+.squares:nth-of-type(5) {
+  width: 37px;
+  height: 37px;
+
   left: 75%;
 
-  animation-delay: 9s;
+  animation-delay: 8s;
 }
 
-.squares:nth-child(8) {
-  width: 55px;
-  height: 55px;
-  left: 67%;
+.squares:nth-of-type(6) {
+  width: 28px;
+  height: 28px;
 
-  animation-delay: 4s;
+  left: 30%;
+
+  animation-delay: 1s;
 }
 
-.squares:nth-child(9) {
-  width: 45px;
-  height: 45px;
-  left: 10%;
+.squares:nth-of-type(7) {
+  width: 91px;
+  height: 91px;
+
+  left: 65%;
+
+  animation-delay: 5s;
+}
+
+.squares:nth-of-type(8) {
+  width: 30px;
+  height: 30px;
+
+  left: 46%;
 
   animation-delay: 7s;
 }
 
-.squares:nth-child(10) {
-  width: 55px;
-  height: 55px;
-  left: 60%;
+.squares:nth-of-type(9) {
+  width: 60px;
+  height: 60px;
+
+  left: 35%;
+
+  animation-delay: 4s;
 }
 
+.squares:nth-of-type(10) {
+  width: 48px;
+  height: 48px;
 
-@keyframes sqani {
+  left: 88%;
+
+  animation-delay: 1s;
+}
+
+@keyframes squareani {
   from {
     bottom: -100px;
   }
 
   to {
     bottom: 100%;
-    transform: rotate(180deg);
     opacity: 0;
+    transform: rotate(360deg);
   }
 }
 
 /* end subscribe section */
 
-/* start footer section  */
-.footerlinks {
+/* start footer section */
+.footer-links {
   color: #eee;
 
   font-size: 13px;
@@ -617,14 +612,15 @@ header {
   transition: all .3s;
 }
 
-.footerlinks:hover {
+.footer-links:hover {
   color: orange;
+
   border-bottom: 1px solid orange;
 
   letter-spacing: 1px;
 }
 
-.footersocialicons a {
+.footersocial-icons a {
   display: inline-block;
 
   width: 30px;
@@ -639,28 +635,26 @@ header {
 
   text-align: center;
   line-height: 30px;
-
-  transition: all .3s;
 }
 
-.footersocialicons a:hover {
+.footersocial-icons a:hover {
   color: blue;
 }
 
-.instagrams ul li a {
+.instagrams ul li a img {
   opacity: 0.9;
   transform: scale(0.9);
 }
 
-.instagrams ul li a:hover {
-  opacity: 0.5;
+.instagrams ul li a img:hover {
+  opacity: 0.6;
   transform: scale(1);
 }
 
 .backtotop-btns {
-  background-color: #303030;
-
   padding: 10px;
+
+  background-color: #303030;
 }
 
 .backtotop-btns:hover {
@@ -669,78 +663,20 @@ header {
 
 /* end footer section */
 
-/* start login & sticknote */
-
-/* start login */
-.opens-button {
-  width: 30px;
-  height: 30px;
-
-  background-color: #555;
-  color: #fff;
-
-  border: none;
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  z-index: 10;
-
-  opacity: 0.8;
+/* start sticknote & login section */
+/* start sticknote */
+.sidenav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
-.opens-button:hover {
-  opacity: 1;
-}
-
-.form-containers {
-  max-width: 300px;
-
-  padding: 10px;
+.sidenav a {
+  width: 100px;
+  padding: 15px;
 
   background-color: #fff;
-}
-
-.form-containers input[type=email],
-.form-containers input[type=password] {
-  width: 100%;
-
-  margin: 5px 0 22px 0;
-  padding: 15px;
-
-  background-color: #f1f1f1;
-
-  border: none;
-}
-
-.form-containers input[type=email]:focus,
-.form-containers input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-.form-popup {
-  display: none;
-
-  position: fixed;
-  right: 15px;
-  bottom: 50px;
-  z-index: 100;
-
-  border: 3px solid #f1f1f1;
-}
-
-/* end login */
-
-/* start sticknote */
-#mysidenav a {
-  width: 100px;
-
-  padding: 15px;
-
   color: #fff;
 
   border-radius: 0 5px 5px 0;
@@ -749,10 +685,14 @@ header {
   text-decoration: none;
 
   position: absolute;
-  left: -80px;
-  z-index: 100;
+  top: 0;
+  left: -75px;
 
   transition: all .3s;
+}
+
+.sidenav a:hover {
+  left: 0;
 }
 
 #about {
@@ -761,24 +701,79 @@ header {
 }
 
 #pages {
-  background-color: skyblue;
+  background-color: steelblue;
   top: 260px;
 }
 
 #news {
-  background-color: tomato;
+  background-color: firebrick;
   top: 320px;
 }
 
 #contact {
-  background-color: gray;
+  background-color: grey;
   top: 380px;
-}
-
-#mysidenav a:hover {
-  left: 0;
 }
 
 /* end sticknote */
 
-/* end login & sticknote */
+/* start login */
+.open-buttons {
+  width: 40px;
+  height: 40px;
+
+  background-color: #555;
+  color: #fff;
+
+  border: none;
+  border-radius: 50%;
+
+  opacity: 0.8;
+
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.open-buttons:hover {
+  background-color: #444;
+}
+
+.popupform {
+  display: none;
+
+  max-width: 300px;
+
+  padding: 10px;
+
+  background-color: #fff;
+
+  border: 3px solid #ddd;
+
+  position: fixed;
+  bottom: 66px;
+  right: 20px;
+  z-index: 100;
+}
+
+.popupform input[type="email"],
+.popupform input[type="password"] {
+  width: 100%;
+
+  margin: 5px 0;
+  padding: 10px;
+
+  background: #f1f1f1;
+
+  border: none;
+}
+
+.popupform input[type="email"]:focus,
+.popupform input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* end login */
+/* end sticknote & login section */
